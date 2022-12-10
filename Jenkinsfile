@@ -6,13 +6,13 @@ pipeline {
     stages {
         stage("Compile") {
             steps {
-                sh "sonar-project.properties"
+                sh "./public "
             }
         }
         stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('SonarQubePruebas') {
-                    sh 'sonar-project.properties'
+                    sh './sonar-project.properties'
                 }
             }
         }
