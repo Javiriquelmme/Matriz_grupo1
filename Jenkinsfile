@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage("Compile") {
             steps {
-                sh "./public "
+                sh "./sonar-project.properties "
             }
         }
         stage('SonarQube analysis') {
