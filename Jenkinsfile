@@ -3,7 +3,7 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('SonarQubePruebas') {
-                    sh './gradlew sonarqube'
+                    sh 'sonar-project.properties'
                 }
             }
         }
