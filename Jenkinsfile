@@ -6,17 +6,17 @@ pipeline {
     stages {
         stage("Compile") {
             steps {
-                sh "./gradlew compileJava"
+                sh "./prueba.py compileJava"
             }
         }
         stage("Unit test") {
             steps {
-                sh "./gradlew test"
+                sh "./prueba.py test"
             }
         }
         stage("Code coverage") {
             steps {
-        	    sh "./gradlew jacocoTestReport"
+        	    sh "./prueba.py jacocoTestReport"
         	 	publishHTML (target: [
          	        reportDir: 'build/reports/jacoco/test/html',
          			reportFiles: 'index.html',
@@ -28,7 +28,7 @@ pipeline {
         stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('SonarQubePruebas') {
-                    sh './gradlew sonarqube'
+                    sh './prueba.py sonarqube'
                 }
             }
         }
